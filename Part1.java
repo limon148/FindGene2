@@ -19,4 +19,12 @@ public class Part1
         }
         return dna.length();
     }
+    public void testFindStopCodon(){
+        String dna = "ATGATCTAATTTATGCTGCAACGGTGAAGA";
+        int startIndex = dna.indexOf("ATG");
+        String stopCodon = "TAA";
+        System.out.println(findStopCodon(dna, startIndex, stopCodon));
+        dna = "";
+        System.out.println(findStopCodon(dna, startIndex, stopCodon));
+    }
 }
