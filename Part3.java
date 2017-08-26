@@ -56,13 +56,19 @@ public class Part3
         return count;
     }
     public int countGenes(String dna){
-        System.out.println(printAllGenes(dna));
-        return printAllGenes(dna);
+        int x = printAllGenes(dna);
+        System.out.println(x);
+        return x;
     }
     public void testOn(String dna) {
         System.out.println("Testing printAllGenes on " + dna);
         //printAllGenes(dna);
         countGenes(dna);
+    }
+    public void testCountGenes(){
+        countGenes("ATGATCTAATTTATGCTGCAACGGTGAAGA");
+        countGenes("");
+        countGenes("ATGATCATAAGAAGATAATAGAGGGCCATGTAA");
     }
     public void test() {
         testOn("ATGATCTAATTTATGCTGCAACGGTGAAGA");
