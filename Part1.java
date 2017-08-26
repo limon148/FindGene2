@@ -17,7 +17,7 @@ public class Part1
                 stopIndex = dna.indexOf(stopCodon, stopIndex + 1);
             }
         }
-        return dna.length();
+        return -1;
     }
     public String findGene(String dna){
         int startIndex = dna.indexOf("ATG");
@@ -42,5 +42,16 @@ public class Part1
         }
         return dna.substring(startIndex, minIndex + 3);
     }
-    
+    public void testFindGene(){
+        String dna = "ATCGAATTACGG";
+        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+        dna = "ATGTATAGTTGATAA";
+        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+        dna = "ATGTTATAAGTTGATAA";
+        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+        dna = "ATGTATAGTTGATAA";
+        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+        dna = "ATGTATAGGTTGTATAT";
+        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+    }
 }
