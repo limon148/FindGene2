@@ -42,21 +42,27 @@ public class Part3
         }
         return dna.substring(startIndex, minIndex + 3);
     }
-    public void printAllGenes(String dna) {
-      int startIndex = 0;
+    public int printAllGenes(String dna) {
+      int startIndex = 0,count = 0;
       while ( true ) {
           String currentGene = findGene(dna, startIndex);
           if (currentGene.isEmpty()) {
               break;
           }
           System.out.println(currentGene);
+          count++;
           startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
         }
+        return count;
     }
-    
+    public int countGenes(String dna){
+        System.out.println(printAllGenes(dna));
+        return printAllGenes(dna);
+    }
     public void testOn(String dna) {
         System.out.println("Testing printAllGenes on " + dna);
-        printAllGenes(dna);
+        //printAllGenes(dna);
+        countGenes(dna);
     }
     public void test() {
         testOn("ATGATCTAATTTATGCTGCAACGGTGAAGA");
