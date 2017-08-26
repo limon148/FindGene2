@@ -19,8 +19,8 @@ public class Part1
         }
         return -1;
     }
-    public String findGene(String dna){
-        int startIndex = dna.indexOf("ATG");
+    public String findGene(String dna, int Index){
+        int startIndex = dna.indexOf("ATG", Index);
         if(startIndex == -1){
             return "";
         }
@@ -42,16 +42,24 @@ public class Part1
         }
         return dna.substring(startIndex, minIndex + 3);
     }
-    public void testFindGene(){
-        String dna = "ATCGAATTACGG";
-        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
-        dna = "ATGTATAGTTGATAA";
-        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
-        dna = "ATGTTATAAGTTGATAA";
-        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
-        dna = "ATGTATAGTTGATAA";
-        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
-        dna = "ATGTATAGGTTGTATAT";
-        System.out.println("DNA stard is " + dna + "\nGene is " + findGene(dna));
+    public void printAllGenes(String dna) {
+      int startIndex = 0;
+      while ( true ) {
+          String currentGene = findGene(dna, startIndex);
+          if (currentGene.isEmpty()) {
+              break;
+          }
+          System.out.println(currentGene);
+          startIndex = dna.indexOf(currentGene, startIndex) + currentGene.length();
+        }
+    }
+    public void testOn(String dna) {
+        System.out.println("Testing printAllGenes on " + dna);
+        printAllGenes(dna);
+    }
+    public void test() {
+        testOn("ATGATCTAATTTATGCTGCAACGGTGAAGA");
+        testOn("");
+        testOn("ATGATCATAAGAAGATAATAGAGGGCCATGTAA");
     }
 }
